@@ -1,16 +1,14 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:rest_test/model/user.dart';
 
 class ListViewData extends StatelessWidget {
   final List<NewsPost> posts;
 
-  ListViewData(Key key, this.posts) : super(key: key);
+  ListViewData({Key key, this.posts}) : super(key: key);
 
   void _onTapItem(BuildContext context, NewsPost newsPost){
     Scaffold.of(context).showSnackBar(SnackBar(
-        content: Text(newsPost.id.toString()+' '+ newsPost.title)));
+        content: Text(newsPost.id.toString()+' - '+ newsPost.title)));
   }
 
   @override
@@ -43,8 +41,8 @@ class ListViewData extends StatelessWidget {
                     color: Colors.grey[850],
                   ),
                 ),
-                leading: Column(
-                  children: [
+                leading: Container(
+                  child:
                     CircleAvatar(
                       backgroundColor: Colors.blueAccent,
                       radius: 28.0,
@@ -54,7 +52,6 @@ class ListViewData extends StatelessWidget {
                         style: TextStyle(fontSize: 15.0, color: Colors.white),
                       ),
                     ),
-                  ],
                 ),
               ),
             ],
